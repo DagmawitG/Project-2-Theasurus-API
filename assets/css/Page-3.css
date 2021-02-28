@@ -1,0 +1,16 @@
+#card{
+    width: 70%;
+    display: flex;
+   justify-content: center;
+   
+   margin-left: 16%;
+    
+  }
+  
+  #text{
+    height: 300px;
+    
+  }
+  #header{
+    height: 100px;
+  }
