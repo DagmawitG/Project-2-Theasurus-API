@@ -10,7 +10,9 @@ search.addEventListener('click',prin);
 function prin(e){
     
     
-    
+    let content= input.value;
+    console.log(content);
+    output.innerHTML=content;
     console.log("why");
     
    
