@@ -2,36 +2,48 @@ var a= "stay";
 var b= "love";
 var syn;
  var words= [];
+ const api_url = `https://www.dictionaryapi.com/api/v3/references/ithesaurus/json/${a}?key=f4202a73-2937-4fd6-b68e-2954ef0d7f04`
+ async function getapi(url){
+     const response = await fetch(url);
+ 
+     var data = await response.json();
+     console.log(data);
+     if (response){
+         
+         var getKeys1 = Object.keys(data['0'] )['0'];
+         var getVal3 = data['1'][getKeys1].syns[0];
+         syn = getVal3[Math.floor(Math.random() * getVal3.length)]
+         questionBank= [
+             {
+                 question : `SYNONYM OF : ${a } is`,
+                 option : [`${syn}`,'love','help','care'],
+                 answer : `${syn}`
+             
+             },
+             {
+                 question : `SYNONYM OF : ${b}`,
+                 option : ['Junagarh','love','help','care'],
+                 answer : 'Diphu, Assam'
+             },
+             {
+                 question : 'For which of the following disciplines is Nobel Prize awarded?',
+                 option : ['Physics and Chemistry','love','help','care','All of the above'],
+                 answer : 'All of the above'
+             },
+             {
+                 question : 'Hitler party which came into power in 1933 is known as',
+                 option : ['Labour Party','love','help','care'],
+                 answer : 'Nazi Party'
+             }
+         ]
+     }
+     displayQuestion()
+     
+ }
+ 
+ getapi(api_url)
+ 
 
-function fetchData(){
-    fetch(https://www.dictionaryapi.com/api/v3/references/ithesaurus/json/${a}?key=f4202a73-2937-4fd6-b68e-2954ef0d7f04).
-    then(response => {
-        if(!response.ok){
-            console.log(response);
-            throw Error("ERROR");
-        }
-        return response.json();
-        // let wordspage= JSON.parse(words.responseText);
-        // console.log(words[0]);
-    }).then(data =>{
-        console.log(data);
-        let getKeys = Object.keys(data['0'])[0];
-        let getVal = data['1']['2'];
-        let getVal2 = data['3'][getKeys];
-        console.log(getVal)
-        console.log(getVal2)
-        
-        
-       /* idnum=(data[0][2]);
-        console.log(idnum);
-        const html= data.map(user =>{
-            return <p>Name:${user.id}</p>
-            console.log(html);
-        })*/
-        document.querySelector("#app").insertAdjacentHTML("afterbegin","<h1> hellows</h1>");
-
-    }).catch(error =>{
-        console.log
 questionBank= [
     {
         question : `SYNONYM OF : a`,
