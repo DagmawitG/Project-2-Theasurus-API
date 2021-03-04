@@ -320,7 +320,32 @@ function getRandomInt(max){
 
 getApi()
 
- 
+  
+
+
+
+
+
+
+
+       
+
+       
+       
+          
+    
+    
+    
+
+
+
+
+
+
+
+
+
+
     
 var question= document.getElementById('question');
 var quizContainer= document.getElementById('quiz-container');
