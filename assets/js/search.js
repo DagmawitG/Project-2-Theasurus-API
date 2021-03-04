@@ -23,7 +23,8 @@ function prin(e){
         console.log(data);
 
         
-     
+        var getKeys1=Object.keys(data['0'])['0'];
+        var getVal3 = data['1'][getKeys1].syns[0];
         
     }
         
