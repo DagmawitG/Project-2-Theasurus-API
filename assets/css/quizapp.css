@@ -1,0 +1,32 @@
+.questions{
+    margin: 3rem auto;
+    width: 65%;
+    padding: 2rem;
+    background: rgba(252, 252, 252, 0.849);
+    cursor: default;
+    border-radius: 1rem;
+}
+#question{
+    margin-bottom: 1rem;
+}
+.option{
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    border-bottom: solid 0.1rem blue;
+    width: 15rem;
+    background: rgb(223, 224, 224);
+    border-radius: 1rem;
+}
+.option:hover{
+    color: rgb(6,17,168);
+}
+ol{
+    position: relative;
+    padding: 0 1.5rem;
+    color: rgb(1,73,73);
+}
+span{
+    display: block;
+    padding: 0.1rem 0.7rem;
+    border-radius: 1rem;
+}
