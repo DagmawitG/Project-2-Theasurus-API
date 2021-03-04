@@ -25,8 +25,12 @@ function prin(e){
         
         var getKeys1=Object.keys(data['0'])['0'];
         var getVal3 = data['1'][getKeys1].syns[0];
-        
+         //access short definition
+      //  var getKeys1=Object.keys(data['0'])['0'];
+      //  var getVal3 = data['1'][getKeys1].syns[0];
+      try1.innerHTML=getVal3;
     }
-        
-    }
+      
+    getapi(api_url);}
+    
     
