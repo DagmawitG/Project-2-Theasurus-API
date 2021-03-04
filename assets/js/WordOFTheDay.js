@@ -2,7 +2,10 @@ const try2=document.querySelector('#try2');
 const title=document.querySelector('.card-title');
 const card_text=document.querySelector('.card-text');
 const mine=document.querySelector('#mine');
-
+nmc bmn c
+MediaKeySystemAccess,s cm CSSNamespaceRule,DNJwaKn vshefbanmc AbortControllers dhcba
+am ahwbda
+e awdwj
 
 function wordOfDay(e){
     var item = wordList[Math.floor(Math.random() * wordList.length)];
