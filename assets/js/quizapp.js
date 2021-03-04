@@ -1,3 +1,37 @@
+var a= "stay";
+var b= "love";
+var syn;
+ var words= [];
+
+function fetchData(){
+    fetch(https://www.dictionaryapi.com/api/v3/references/ithesaurus/json/${a}?key=f4202a73-2937-4fd6-b68e-2954ef0d7f04).
+    then(response => {
+        if(!response.ok){
+            console.log(response);
+            throw Error("ERROR");
+        }
+        return response.json();
+        // let wordspage= JSON.parse(words.responseText);
+        // console.log(words[0]);
+    }).then(data =>{
+        console.log(data);
+        let getKeys = Object.keys(data['0'])[0];
+        let getVal = data['1']['2'];
+        let getVal2 = data['3'][getKeys];
+        console.log(getVal)
+        console.log(getVal2)
+        
+        
+       /* idnum=(data[0][2]);
+        console.log(idnum);
+        const html= data.map(user =>{
+            return <p>Name:${user.id}</p>
+            console.log(html);
+        })*/
+        document.querySelector("#app").insertAdjacentHTML("afterbegin","<h1> hellows</h1>");
+
+    }).catch(error =>{
+        console.log
 questionBank= [
     {
         question : `SYNONYM OF : a`,
