@@ -1,11 +1,39 @@
+//var a =document.getElementById("input")
+b = "value"
+
+const search=document.querySelector('#search');
+const input = document.querySelector('#inputword');
+const output=document.querySelector('#output');
+const trial=document.querySelector('#trial');
+const try1=document.querySelector('#try1');
 const try2=document.querySelector('#try2');
 const title=document.querySelector('.card-title');
 const card_text=document.querySelector('.card-text');
 const mine=document.querySelector('#mine');
-nmc bmn c
-MediaKeySystemAccess,s cm CSSNamespaceRule,DNJwaKn vshefbanmc AbortControllers dhcba
-am ahwbda
-e awdwj
+
+search.addEventListener('click',prin);
+
+function prin(e){
+    let content= input.value;
+    console.log(content);
+    // output.innerHTML=content;
+   
+    const api_url = `https://www.dictionaryapi.com/api/v3/references/ithesaurus/json/${content}?key=f4202a73-2937-4fd6-b68e-2954ef0d7f04`
+    async function getapi(url){
+    const response = await fetch(url);
+
+    var data = await response.json();
+    console.log(data);
+    var getKeys1 = Object.keys(data['0'] )['0'];
+    var getVal3 = data['1'][getKeys1].syns[0];
+    try1.innerHTML=getVal3;
+
+    
+    }
+
+       
+    getapi(api_url);
+}
 
 function wordOfDay(e){
     var item = wordList[Math.floor(Math.random() * wordList.length)];
@@ -33,10 +61,12 @@ function wordOfDay(e){
     card_text.innerHTML=getVal3;
     mine.innerHTML=getVal;
     console.log("why")
-    }    
     }
-    getapi(api_url)
+   
 
+    
+    }
+    getapi(api_url);
 }
 
 var wordList = [
@@ -285,9 +315,7 @@ var wordList = [
     "wrapped","write","writer","writing","written","wrong","wrote","yard",
     "year","yellow","yes","yesterday","yet","you","young","younger",
     "your","yourself","youth","zero","zebra","zipper","zoo","zulu"
-
-];
-
+  ];
   
   
   
