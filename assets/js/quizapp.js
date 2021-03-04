@@ -1,3 +1,4 @@
+
 var wordList = [
     // Borrowed from xkcd password generator which borrowed it from wherever
     "ability","able","aboard","about","above","accept","accident","according",
@@ -245,52 +246,82 @@ var wordList = [
     "year","yellow","yes","yesterday","yet","you","young","younger",
     "your","yourself","youth","zero","zebra","zipper","zoo","zulu"
   ];
+  
   var word = wordList[Math.floor(Math.random() * wordList.length)]
   var syn;
- const api_url = `https://www.dictionaryapi.com/api/v3/references/ithesaurus/json/${a}?key=f4202a73-2937-4fd6-b68e-2954ef0d7f04`
- async function getapi(url){
-     const response = await fetch(url);
- 
-     var data = await response.json();
-     console.log(data);
-     if (response){
-         
-         var getKeys1 = Object.keys(data['0'] )['0'];
-         var getVal3 = data['1'][getKeys1].syns[0];
-         syn = getVal3[Math.floor(Math.random() * getVal3.length)]
-         
-questionBank= [
-    {
-        question : `SYNONYM OF : a`,
-        option : [`b`,'c','s','s'],
-        answer : `t`
+  questionBank= [
+                
+] 
+ async function getApi(){
     
-    },
-    {
-        question : `SYNONYM OF : a`,
-        option : [`b`,'c','s','s'],
-        answer : `t`
-    },
-    {
-        question : `SYNONYM OF : a`,
-        option : [`b`,'c','s','s'],
-        answer : `t`
-    },
-    {
-        question : `SYNONYM OF : a`,
-        option : [`b`,'c','s','s'],
-        answer : `t`
-    }
-]
-     }
-     displayQuestion()
+      for(let i =0;i<4;i++){
+         var wordss = wordList[Math.floor(Math.random() * wordList.length)]
+        const url = `https://www.dictionaryapi.com/api/v3/references/ithesaurus/json/${wordss}?key=f4202a73-2937-4fd6-b68e-2954ef0d7f04`
+        const response = await fetch(url);
+
+        var data = await response.json();
+        console.log(data)
+        if (response){
+        
+            let getKeys1 = Object.keys(data['0'])['0'] ;
+           
+            var getVal3 = data['0'][getKeys1].syns[0];
+            var syn = getVal3[Math.floor(Math.random() * getVal3.length)]
+            
+           console.log(syn)
+
+
+           
+
+
+          var obj = {
+            question : `SYNONYM OF : ${wordss} is`,
+
+            // option: op,
+            option: rand(syn),
+
+            // option : [`${syn}`,`love`,`care`,`support`],
+            answer : `${syn}`
+        
+        }
+           
+
+         questionBank.push(obj)   
+
+      } 
      
- }
- 
- getapi(api_url)
- 
+      //questionBank.push(obj)
+      displayQuestion()
+    }
+     
+    questionBank
+} 
 
+function rand(syn){
+    var op=[``,``,``,``];
 
+            op[getRandomInt(4)]=syn;
+            for(let k=0; k<100; k++){
+                
+                var ran = getRandomInt(4);
+                if (op[ran]==''){
+                op[ran]=wordList[Math.floor(Math.random() * wordList.length)];}
+
+            }
+
+            
+            console.log(op)
+            return op
+}
+
+function getRandomInt(max){
+    return Math.floor(Math.random()*Math.floor(max));
+}
+
+getApi()
+
+ 
+    
 var question= document.getElementById('question');
 var quizContainer= document.getElementById('quiz-container');
 var scorecard= document.getElementById('scorecard');
@@ -301,6 +332,8 @@ var option3= document.getElementById('option3');
 var next= document.querySelector('.next');
 var points= document.getElementById('score');
 var span= document.querySelectorAll('span');
+var i=0;
+var score= 0;
 function displayQuestion(){
     //api()
     for(var a=0;a<span.length;a++){
